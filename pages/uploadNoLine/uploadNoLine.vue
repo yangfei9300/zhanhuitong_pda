@@ -2,9 +2,6 @@
 	<view>
 		<view class="colonn">
 			<block v-if="options.type==1">
-				
-			
-				
 				<view  style="text-align: center;color: red;font-weight: bold;padding:20rpx 0rpx;">总计：{{list.length-1}}条记录</view>
 				<view class="roww rowsb border_bottom" style="padding:20rpx 15rpx;">
 					<view class="allline" style="text-align: center;">兼职姓名</view>
@@ -44,9 +41,6 @@
 				@longtap="delWuxiaodata"
 				>【无效数据有{{wuxiaoNum}}条】</text></view>
 				<view style="text-align: center;color: red;font-weight: bold;padding:20rpx 0rpx;">本页离线数据待上传（{{list.length}}条）
-				
-			
-				
 				</view>
 				<view class="roww rowsb border_bottom" style="padding:20rpx 15rpx;">
 					<view class="allline w-100" style="text-align: center;">兼职姓名</view>
@@ -228,6 +222,9 @@
 								console.log("核销入口结果", res)
 								if (res.code == 200) {
 									this.updateBendiDB(info,index,'yes');
+									
+									
+									
 								} else {
 									this.$tools.showToast(res.msg);
 									setTimeout(res=>{

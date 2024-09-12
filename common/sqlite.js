@@ -195,6 +195,53 @@ module.exports = {
     if (dbTable !== undefined) {
       // 第一个是表单名称，后两个参数是列表名，用来检索
   	  var sql="SELECT * FROM "+dbTable+" where isUpload='false' and  isLine='false' "+" LIMIT "+num;
+  	  console.log("查询sql语句",sql)  
+      return new Promise((resolve, reject) => {
+        // 表格查询数据  执行查询的SQL语句
+        plus.sqlite.selectSql({
+          name: this.dbName,  
+          sql: sql,
+          success(e) {  
+            resolve(e);
+          },
+          fail(e) {
+            reject(e);
+          }
+        })
+      })
+    } else {
+      return new Promise((resolve, reject) => { reject("错误查询") });
+    }
+  },
+  
+  selectTableData1_1(dbTable,num,OFFSET) {
+    if (dbTable !== undefined) {
+      // 第一个是表单名称，后两个参数是列表名，用来检索
+  	  var sql="SELECT * FROM "+dbTable+" "+" ORDER BY createTime DESC    LIMIT "+num+" OFFSET "+OFFSET;
+  	  console.log("查询sql语句",sql)  
+      return new Promise((resolve, reject) => {
+        // 表格查询数据  执行查询的SQL语句
+        plus.sqlite.selectSql({
+          name: this.dbName,  
+          sql: sql,
+          success(e) {  
+            resolve(e);
+          },
+          fail(e) {
+            reject(e);
+          }
+        })
+      })
+    } else {
+      return new Promise((resolve, reject) => { reject("错误查询") });
+    }
+  },
+  
+  
+  selectgetTotalCont(dbTable) {
+    if (dbTable !== undefined) {
+      // 第一个是表单名称，后两个参数是列表名，用来检索
+  	  var sql="select count(*) count FROM "+dbTable+" WHERE isUpload='false' and isLine='false'";
      
   	  console.log("查询sql语句",sql)  
       return new Promise((resolve, reject) => {
@@ -215,10 +262,10 @@ module.exports = {
     }
   },
   
-  selectgetTotalCont(dbTable) {
+  selectgetTotalCont1(dbTable) {
     if (dbTable !== undefined) {
       // 第一个是表单名称，后两个参数是列表名，用来检索
-  	  var sql="select count(*) count FROM scan_info WHERE isUpload='false' and isLine='false'";
+  	  var sql="select count(*) count FROM "+dbTable;
      
   	  console.log("查询sql语句",sql)  
       return new Promise((resolve, reject) => {
@@ -330,12 +377,40 @@ module.exports = {
       })
     })
   },
+  selWuxiaoNum1() {
+    return new Promise((resolve, reject) => {
+      plus.sqlite.selectSql({
+        name: this.dbName,
+        sql: `SELECT count(*) count FROM scan_error_info WHERE isLine="false" AND isUpload="no"`,
+        success(e) {
+          resolve(e);
+        },
+        fail(e) {
+          reject(e);
+        }
+      })
+    })
+  },
   // 删除无效数据
-  delWuxiaodata() {
+  delWuxiaodata(tableName) {
     return new Promise((resolve, reject) => {
       plus.sqlite.selectSql({
         name: this.dbName,
         sql: `DELETE FROM scan_info WHERE isUpload ='no'`,
+        success(e) {
+          resolve(e);
+        },
+        fail(e) {
+          reject(e);
+        }
+      })
+    })
+  },
+  delWuxiaodata1(tableName) {
+    return new Promise((resolve, reject) => {
+      plus.sqlite.selectSql({
+        name: this.dbName,
+        sql: `DELETE FROM scan_error_info WHERE isUpload ='no'`,
         success(e) {
           resolve(e);
         },

@@ -26,7 +26,8 @@ export default{
 				fail:(err)=>{
 					reject(err)
 				},
-				complete() {
+				complete(res) {
+					console.log("===",res)
 					wx.hideLoading()
 				}
 			})
@@ -52,7 +53,8 @@ export default{
 				fail:(err)=>{
 					reject(err)
 				},
-				complete() {
+				complete(res) {
+					console.log("===",res)
 					wx.hideLoading()
 				}
 			})

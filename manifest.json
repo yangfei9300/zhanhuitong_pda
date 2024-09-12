@@ -2,8 +2,8 @@
     "name" : "展汇通PDA",
     "appid" : "__UNI__6FB0A38",
     "description" : "",
-    "versionName" : "1.1.2",
-    "versionCode" : 112,
+    "versionName" : "1.6.2",
+    "versionCode" : 162,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -93,8 +93,8 @@
                     "description" : "实现了APP接收iData品牌PDA扫描的条码数据，适配iData品牌所有安卓PDA设备。",
                     "platforms" : "Android",
                     "url" : "https://ext.dcloud.net.cn/plugin?id=3898",
-                    "android_package_name" : "com.huizu.zht",
-                    "ios_bundle_id" : "com.huizu.zht",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
                     "isCloud" : true,
                     "bought" : 1,
                     "pid" : "3898",

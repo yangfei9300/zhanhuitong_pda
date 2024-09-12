@@ -3,6 +3,7 @@
 		<view class="colonn">
 			<button class="xiayibubtn" @longpress="clearSaanInfo('statistics_num')">清理登录用户表</button>
 			<button class="xiayibubtn" @longpress="clearSaanInfo('scan_info')">清理登录扫码详情表</button>
+			<button class="xiayibubtn" @longpress="clearSaanInfo('scan_error_info')">清理错误日志表</button>
 		</view>
 	</view>
 </template>

@@ -74,7 +74,7 @@
 							// return false;
 							if(res.data.versionNum!=(this.version+"")){
 								
-								uni.showModal({									title: '提示',									content: '确定要更新码',									success:  (res2)=> {										if (res2.confirm) {											console.log('用户点击确定');
+								uni.showModal({									title: '提示',									content: '确定要更新吗？',									success:  (res2)=> {										if (res2.confirm) {											console.log('用户点击确定');
 											        
 											this.toGengxin(res.data.url);
 											this.isGengxin=true;

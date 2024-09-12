@@ -14,6 +14,10 @@ Vue.prototype.$store = store; //挂在到Vue实例上
 Vue.prototype.$axios = axios ;//请求封装
 Vue.prototype.$paths = paths ;//请求地址
 Vue.prototype.$tools = tools ;//工具类
+
+import AES from '@/js_sdk/ar-aes/ar-aes.js'
+Vue.prototype.AES = AES.AES
+
 // 工具类
 App.mpType = 'app'
 const app = new Vue({
